@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .delete{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Create -->
+    <input type="text" id="firstname">
+    <button id="button">click</button>
+    <div id="datadisplay"></div>
+    <script>
+        //CRUD
+        //Create
+        let firstinputtag = document.getElementById("firstname");
+        let buttontag = document.getElementById("button");
+        let datadisplay = document.getElementById("datadisplay");
+
+        buttontag.addEventListener("click",()=>{
+            let storevalue =firstinputtag.value;
+            if(!storevalue) return
+            // datadisplay.innerHTML= (storevalue);
+            // console.log(storevalue);
+            //Another method to create 
+            //create
+            let newdiv = document.createElement("div")
+            datadisplay.appendChild(newdiv);
+
+            let firstnewinputtag=document.createElement("input");
+            firstnewinputtag.value=storevalue;//Hoisting
+            firstnewinputtag.setAttribute("readonly","readonly")
+            firstnewinputtag.setAttribute("value",storevalue)//to view the user input value
+            newdiv.appendChild(firstnewinputtag);
+
+            //Edit
+            let editbutton=document.createElement("button");
+            editbutton.innerHTML="edit";//Hoisting
+            newdiv.appendChild(editbutton);
+
+            editbutton.addEventListener("click",()=>{
+                firstnewinputtag.removeAttribute("readonly","readonly");
+            })
+
+            //save
+            let savebutton=document.createElement("button");
+            savebutton.innerHTML="save"
+            newdiv.appendChild(savebutton);
+
+            savebutton.addEventListener("click",()=>{
+                firstnewinputtag.removeAttribute("readonly","readonly");
+            })
+
+            //delete
+            let deletebutton=document.createElement("button");
+            deletebutton.innerHTML="delete";
+            newdiv.appendChild(deletebutton);
+
+            
+
+            deletebutton.addEventListener("click",()=>{
+                //to delete entire newdiv container
+                // newdiv.style.display="none";
+                // newdiv.classList.add("delete")
+                newdiv.className = "jamam"
+                
+                
+            })
+        })
+    </script>
+</body>
+</html>

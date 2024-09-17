@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // AJAX Asyncronous JavaScript and XML
+        //To convert a file into url link
+        //new means current
+        //XMLHttpRequest() means javascript inbuilt function.
+        //GET
+        //parse means it takes object key
+        let httpcreate= new XMLHttpRequest();
+        httpcreate.open("GET","jsonfile.json");
+        httpcreate.onload=function(){
+            let Objectformate=JSON.parse(this.responseText);
+            console.log(Objectformate);
+
+        }
+        httpcreate.send();
+
+        //another method using fetch
+        fetch()
+        .then((res)=>res.json)
+        .then((output)=>{
+            console.log(output);
+            output.map((zamam)=>{
+                zamam.title;
+            })
+        })
+    </script>
+</body>
+</html>
